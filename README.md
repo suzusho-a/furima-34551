@@ -20,15 +20,16 @@
 
 ## items テーブル
 
-| Column               | Type       | Options     |
-|----------------------|------------|-------------|
-| name                 | string     | null: false |
-| price                | integer    | null: false |
-| category_id          | references | null: false |
-| product_condition_id | references | null: false |
-| shipping_charges_id  | references | null: false |
-| shipping_area_id     | references | null: false |
-| shipping_date_id     | references | null: false |
+| Column               | Type    | Options                        |
+|----------------------|---------|--------------------------------|
+| name                 | string  | null: false                    |
+| price                | integer | null: false                    |
+| category_id          | integer | null: false, foreign_key: true |
+| product_condition_id | integer | null: false, foreign_key: true |
+| shipping_charges_id  | integer | null: false, foreign_key: true |
+| shipping_area_id     | integer | null: false, foreign_key: true |
+| shipping_date_id     | integer | null: false, foreign_key: true |
+| user                 | integer | null: false, foreign_key: true |
 
 ### Association
 
@@ -50,11 +51,10 @@
 | street_address    | string  | null: false                    |
 | room_number       | string  |                                |
 | phone_number      | string  | null: false                    |
+| trades_id         | string  | null: false                    |
 
 ### Association
 
-- belongs_to :user
-- belongs_to :item
 - belongs_to :trade
 - belongs_to_active_hash :shipping_area
 
@@ -62,9 +62,9 @@
 
 | Column  | Type       | Options                        |
 |---------|------------|--------------------------------|
-| seller  | references | null: false, foreign_key: true |
 | buyer   | references | null: false, foreign_key: true |
 | item    | references | null: false, foreign_key: true |
+| user    | integer    | null: false, foreign_key: true |
 
 ### Association
 
