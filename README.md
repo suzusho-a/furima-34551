@@ -24,6 +24,7 @@
 |----------------------|---------|--------------------------------|
 | name                 | string  | null: false                    |
 | price                | integer | null: false                    |
+| item description     | integer | null: false                    |
 | category_id          | integer | null: false, foreign_key: true |
 | product_condition_id | integer | null: false, foreign_key: true |
 | shipping_charges_id  | integer | null: false, foreign_key: true |
