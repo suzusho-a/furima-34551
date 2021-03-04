@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column               | Type    | Options     |
-|----------------------|---------|-------------|
-| name                 | string  | null: false |
-| price                | integer | null: false |
-| item description     | integer | null: false |
-| category_id          | integer | null: false |
-| product_condition_id | integer | null: false |
-| shipping_charges_id  | integer | null: false |
-| shipping_area_id     | integer | null: false |
-| shipping_date_id     | integer | null: false |
-| user                 | integer | null: false |
+| Column               | Type       | Options     |
+|----------------------|------------|-------------|
+| name                 | string     | null: false |
+| price                | integer    | null: false |
+| item_description     | text       | null: false |
+| category_id          | references | null: false |
+| product_condition_id | references | null: false |
+| shipping_charge_id   | references | null: false |
+| shipping_area_id     | references | null: false |
+| shipping_date_id     | references | null: false |
+| user                 | references | null: false |
 
 ### Association
 
@@ -44,15 +44,15 @@
 
 ## shipping_address テーブル
 
-| Column            | Type    | Options                        |
-|-------------------|---------|--------------------------------|
-| postal_code       | string  | null: false                    |
-| shipping_area_id  | integer | null: false                    |
-| city              | string  | null: false                    |
-| street_address    | string  | null: false                    |
-| room_number       | string  |                                |
-| phone_number      | string  | null: false                    |
-| trade_id          | integer | null: false, foreign_key: true |
+| Column            | Type       | Options                        |
+|-------------------|------------|--------------------------------|
+| postal_code       | string     | null: false                    |
+| shipping_area_id  | integer    | null: false                    |
+| city              | string     | null: false                    |
+| street_address    | string     | null: false                    |
+| room_number       | string     |                                |
+| phone_number      | string     | null: false                    |
+| trade_id          | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -64,7 +64,7 @@
 | Column  | Type       | Options                        |
 |---------|------------|--------------------------------|
 | item    | references | null: false, foreign_key: true |
-| user_id | integer    | null: false, foreign_key: true |
+| user_id | references | null: false, foreign_key: true |
 
 ### Association
 
