@@ -1,0 +1,58 @@
+<mxfile host="65bd71144e" modified="2021-03-01T10:27:31.295Z" agent="5.0 (Macintosh; Intel Mac OS X 11_2_2) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.53.2 Chrome/87.0.4280.141 Electron/11.2.1 Safari/537.36" etag="VhBmAz2q9Tdm1Yh5uhwh" version="14.2.4" type="embed">
+    <diagram id="5FVqoFkzmzG0YQhWwOOV" name="ページ1">
+        <mxGraphModel dx="1700" dy="795" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Users Table" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+                    <mxGeometry y="90" width="330" height="230" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="| Column           | Type                  | Options                                  |&#10;|------------------|-----------------------|-------------------------|&#10;| email            | string                | null: false, unique: true, index: true   |&#10;| password         | string                | null: false                              |&#10;| nickname         | string                | null: false                              |&#10;| first_name       | string                | null: false                              |&#10;| last_name        | string                | null: false                              |&#10;| first_kana       | string                | null: false                              |&#10;| family_name_kana | string                | null: false                              |&#10;| birth_year       | date                | null: false                              |" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="2" vertex="1">
+                    <mxGeometry y="30" width="330" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Items Table" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="440" y="90" width="360" height="240" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="| Column            | Type       | Options                        |&#10;|-------------------|------------|--------------------------------|&#10;| name              | string     | null: false                    |&#10;| price             | integer    | null: false                    |&#10;| category          | integer| null: false, foreign_key: true |&#10;| product_condition_id | integer    |                                  |&#10;| shipping_charges_id | integer    | null: false, foreign_key: true |&#10;| shipping_area_id | integer    | null: false, foreign_key: true |&#10;| shipping_date_id | integer    | null: false, foreign_key: true |" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="4" vertex="1">
+                    <mxGeometry y="30" width="360" height="210" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Shipping_Table" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="430" width="320" height="200" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="| Column         | Type   | Options                        |&#10;|----------------|--------|--------------------------------|&#10;| postal_code    | string | null: false                    |&#10;| prefecture_id | integer | null: false                    |&#10;| city           | string | null: false                    |&#10;| street_address | string | null: false                    |&#10;| room_number    | string |                                |&#10;| phone_number   | string | null: false                    |&#10;| user           | string | null: false, foreign_key: true |" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="7" vertex="1">
+                    <mxGeometry y="30" width="320" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;entryX=-0.01;entryY=0.596;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" target="5" edge="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="330" y="240" as="sourcePoint"/>
+                        <mxPoint x="450" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERoneToMany;exitX=0.335;exitY=1.006;exitDx=0;exitDy=0;exitPerimeter=0;entryX=-0.001;entryY=0.595;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="3" target="8" edge="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="150" y="340" as="sourcePoint"/>
+                        <mxPoint x="200" y="560" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="13" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" target="5" edge="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="530" y="550" as="sourcePoint"/>
+                        <mxPoint x="630" y="450" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="Trades Table" style="swimlane;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;rounded=1;fontSize=14;fontStyle=0;strokeWidth=2;resizeParent=0;resizeLast=1;shadow=0;dashed=0;align=center;" parent="1" vertex="1">
+                    <mxGeometry x="540" y="660" width="290" height="170" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="| Column  | Type       | Options                        |&#10;|---------|------------|--------------------------------|&#10;| seller  | references | null: false, foreign_key: true |&#10;| user_id | references | null: false, foreign_key: true |&#10;| item_id | references | null: false, foreign_key: true |" style="align=left;strokeColor=none;fillColor=none;spacingLeft=4;fontSize=12;verticalAlign=top;resizable=0;rotatable=0;part=1;" parent="15" vertex="1">
+                    <mxGeometry y="30" width="290" height="140" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="" style="edgeStyle=entityRelationEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=0.458;exitY=-0.023;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.718;entryY=1.025;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="15" target="5" edge="1">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="650" y="640" as="sourcePoint"/>
+                        <mxPoint x="660" y="420" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
