@@ -1,73 +1,24 @@
-# テーブル 設計
+# README
 
-## users テーブル
+This README would normally document whatever steps are necessary to get the
+application up and running.
 
-| Column             | Type                  | Options                   |
-|--------------------|-----------------------|---------------------------|
-| email              | string                | null: false, unique: true |
-| encrypted_password | string                | null: false               |
-| nickname           | string                | null: false               |
-| first_name         | string                | null: false               |
-| last_name          | string                | null: false               |
-| first_kana         | string                | null: false               |
-| last_name_kana     | string                | null: false               |
-| birth_year         | date                  | null: false               |
+Things you may want to cover:
 
-### Association
+* Ruby version
 
-- has_many :items
-- has_many :trades
+* System dependencies
 
-## items テーブル
+* Configuration
 
-| Column               | Type       | Options                       |
-|----------------------|------------|-------------------------------|
-| name                 | string     | null: false                   |
-| price                | integer    | null: false                   |
-| item_description     | text       | null: false                   |
-| category_id          | integer    | null: false                   |
-| product_condition_id | integer    | null: false                   |
-| shipping_charge_id   | integer    | null: false                   |
-| shipping_area_id     | integer    | null: false                   |
-| shipping_date_id     | integer    | null: false                   |
-| user                 | references | null: false,foreign_key: true |
+* Database creation
 
-### Association
+* Database initialization
 
-- belongs_to :user
-- has_one :trade
-- belongs_to_active_hash :product_condition
-- belongs_to_active_hash :shipping_charges
-- belongs_to_active_hash :shipping_area
-- belongs_to_active_hash :shipping_date
-- belongs_to_active_hash :category
+* How to run the test suite
 
-## shipping_address テーブル
+* Services (job queues, cache servers, search engines, etc.)
 
-| Column            | Type       | Options                        |
-|-------------------|------------|--------------------------------|
-| postal_code       | string     | null: false                    |
-| shipping_area_id  | integer    | null: false                    |
-| city              | string     | null: false                    |
-| street_address    | string     | null: false                    |
-| room_number       | string     |                                |
-| phone_number      | string     | null: false                    |
-| trade             | references | null: false, foreign_key: true |
+* Deployment instructions
 
-### Association
-
-- belongs_to :trade
-- belongs_to_active_hash :shipping_area
-
-## Trades テーブル
-
-| Column  | Type       | Options                        |
-|---------|------------|--------------------------------|
-| item    | references | null: false, foreign_key: true |
-| user    | references | null: false, foreign_key: true |
-
-### Association
-
-- belongs_to :item
-- belongs_to :user
-- has_one :shipping_address
+* ...
