@@ -20,17 +20,17 @@
 
 ## items テーブル
 
-| Column               | Type    | Options                        |
-|----------------------|---------|--------------------------------|
-| name                 | string  | null: false                    |
-| price                | integer | null: false                    |
-| item description     | integer | null: false                    |
-| category_id          | integer | null: false, foreign_key: true |
-| product_condition_id | integer | null: false, foreign_key: true |
-| shipping_charges_id  | integer | null: false, foreign_key: true |
-| shipping_area_id     | integer | null: false, foreign_key: true |
-| shipping_date_id     | integer | null: false, foreign_key: true |
-| user                 | integer | null: false, foreign_key: true |
+| Column               | Type    | Options     |
+|----------------------|---------|-------------|
+| name                 | string  | null: false |
+| price                | integer | null: false |
+| item description     | integer | null: false |
+| category_id          | integer | null: false |
+| product_condition_id | integer | null: false |
+| shipping_charges_id  | integer | null: false |
+| shipping_area_id     | integer | null: false |
+| shipping_date_id     | integer | null: false |
+| user                 | integer | null: false |
 
 ### Association
 
@@ -52,7 +52,7 @@
 | street_address    | string  | null: false                    |
 | room_number       | string  |                                |
 | phone_number      | string  | null: false                    |
-| trades_id         | string  | null: false                    |
+| trade_id          | integer | null: false, foreign_key: true |
 
 ### Association
 
@@ -63,9 +63,8 @@
 
 | Column  | Type       | Options                        |
 |---------|------------|--------------------------------|
-| buyer   | references | null: false, foreign_key: true |
 | item    | references | null: false, foreign_key: true |
-| user    | integer    | null: false, foreign_key: true |
+| user_id | integer    | null: false, foreign_key: true |
 
 ### Association
 
